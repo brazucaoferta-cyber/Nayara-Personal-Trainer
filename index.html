@@ -211,7 +211,8 @@
   .reveal-stagger.in > *:nth-child(4){transition-delay:.32s}
 
   /* ---------- services ---------- */
-  .services{padding:130px 0 100px;background:var(--bg);overflow:hidden;}
+  .journey{position:relative;overflow:hidden;background:linear-gradient(180deg,var(--bg) 0%,var(--bg-soft) 42%,var(--bg) 68%,var(--bg-soft) 100%);}
+  .services{padding:130px 0 100px;}
   .services .wrap{position:relative;z-index:2;}
   .service-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:26px;}
   .service-card{
@@ -244,7 +245,7 @@
   .service-body .btn{padding:12px 20px;font-size:.82rem;}
 
   /* ---------- manifesto ---------- */
-  .manifesto{padding:130px 0;background:linear-gradient(180deg,var(--bg) 0%,var(--bg-soft) 100%);text-align:center;position:relative;overflow:hidden;}
+  .manifesto{padding:130px 0;text-align:center;position:relative;}
   .manifesto-lines{position:absolute;inset:0;overflow:hidden;pointer-events:none;z-index:1;}
   .manifesto-lines span{
     position:absolute;top:-30%;width:2px;height:160%;
@@ -267,7 +268,7 @@
   .manifesto-body p:last-of-type{margin-bottom:40px;color:var(--white);font-weight:500;}
 
   /* ---------- plans ---------- */
-  .plans{padding:100px 0;background:linear-gradient(180deg,var(--bg) 0%,var(--bg-soft) 100%);overflow:hidden;}
+  .plans{padding:100px 0;}
   .plans .wrap{position:relative;z-index:2;}
   .plan-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:26px;}
   .plan-card{
@@ -296,7 +297,7 @@
   .plan-note{text-align:center;color:var(--muted-2);font-size:.85rem;margin-top:28px;}
 
   /* ---------- results / credentials ---------- */
-  .results{padding:110px 0;background:var(--bg-soft);overflow:hidden;}
+  .results{padding:110px 0;}
   .results .wrap{display:grid;grid-template-columns:.85fr 1.15fr;gap:60px;align-items:center;position:relative;z-index:2;}
   .results-photo{position:relative;}
   .results-photo .frame{
@@ -509,9 +510,11 @@
   <div class="scroll-cue"><span>Role</span><div class="line"></div></div>
 </section>
 
-<!-- ================= SERVICES ================= -->
-<section class="services" id="servicos">
+<!-- ================= SERVICES + MANIFESTO + PLANS + RESULTS (linhas neon continuas) ================= -->
+<div class="journey">
   <div class="manifesto-lines" aria-hidden="true"><span></span><span></span><span></span><span></span></div>
+
+<section class="services" id="servicos">
   <div class="wrap">
     <div class="section-head reveal">
       <span class="eyebrow">Serviços</span>
@@ -586,7 +589,6 @@
 
 <!-- ================= MANIFESTO ================= -->
 <section class="manifesto" id="filosofia">
-  <div class="manifesto-lines" aria-hidden="true"><span></span><span></span><span></span><span></span></div>
   <div class="wrap reveal">
     <span class="eyebrow" style="justify-content:center;">Por que treinar comigo</span>
     <h2 class="manifesto-quote">"O espelho machuca. A ação diária cura."</h2>
@@ -604,7 +606,6 @@
 
 <!-- ================= PLANS ================= -->
 <section class="plans" id="planos">
-  <div class="manifesto-lines" aria-hidden="true"><span></span><span></span><span></span><span></span></div>
   <div class="wrap">
     <div class="section-head reveal">
       <span class="eyebrow">Planos</span>
@@ -650,7 +651,6 @@
 
 <!-- ================= RESULTS / CREDENTIALS ================= -->
 <section class="results" id="resultados">
-  <div class="manifesto-lines" aria-hidden="true"><span></span><span></span><span></span><span></span></div>
   <div class="wrap">
     <div class="results-photo reveal">
       <div class="glow"></div>
@@ -684,6 +684,8 @@
     </div>
   </div>
 </section>
+
+</div><!-- /.journey -->
 
 <!-- ================= ABOUT ================= -->
 <section class="about" id="sobre">
