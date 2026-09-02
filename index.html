@@ -132,8 +132,9 @@
     padding:12px 0;
   }
   .nav-row{display:flex;align-items:center;justify-content:space-between;gap:24px;}
-  .brand{font-family:'Playfair Display',serif;font-weight:700;font-size:1.2rem;letter-spacing:.01em;}
+  .brand{font-family:'Playfair Display',serif;font-weight:700;font-size:1.2rem;letter-spacing:.01em;display:flex;align-items:center;}
   .brand span{color:var(--blue-soft);}
+  .brand-logo{height:46px;width:auto;display:block;}
   nav.links{display:flex;gap:32px;font-size:.92rem;color:var(--muted);}
   nav.links a{transition:color .25s ease;position:relative;}
   nav.links a:hover{color:var(--white);}
@@ -441,7 +442,7 @@
 <!-- ================= HEADER ================= -->
 <header id="siteHeader">
   <div class="wrap nav-row">
-    <a href="#topo" class="brand">Nayara <span>Sangoleti</span></a>
+    <a href="#topo" class="brand"><img src="assets/logo-nay.png" alt="Nayara Sangoleti" class="brand-logo"></a>
     <nav class="links">
       <a href="#servicos">Serviços</a>
       <a href="#planos">Planos</a>
