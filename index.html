@@ -211,7 +211,8 @@
   .reveal-stagger.in > *:nth-child(4){transition-delay:.32s}
 
   /* ---------- services ---------- */
-  .services{padding:130px 0 100px;background:var(--bg);}
+  .services{padding:130px 0 100px;background:var(--bg);overflow:hidden;}
+  .services .wrap{position:relative;z-index:2;}
   .service-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:26px;}
   .service-card{
     scroll-margin-top:110px;
@@ -266,7 +267,8 @@
   .manifesto-body p:last-of-type{margin-bottom:40px;color:var(--white);font-weight:500;}
 
   /* ---------- plans ---------- */
-  .plans{padding:100px 0;background:linear-gradient(180deg,var(--bg) 0%,var(--bg-soft) 100%);}
+  .plans{padding:100px 0;background:linear-gradient(180deg,var(--bg) 0%,var(--bg-soft) 100%);overflow:hidden;}
+  .plans .wrap{position:relative;z-index:2;}
   .plan-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:26px;}
   .plan-card{
     border-radius:var(--radius);
@@ -295,7 +297,7 @@
 
   /* ---------- results / credentials ---------- */
   .results{padding:110px 0;background:var(--bg-soft);overflow:hidden;}
-  .results .wrap{display:grid;grid-template-columns:.85fr 1.15fr;gap:60px;align-items:center;}
+  .results .wrap{display:grid;grid-template-columns:.85fr 1.15fr;gap:60px;align-items:center;position:relative;z-index:2;}
   .results-photo{position:relative;}
   .results-photo .frame{
     border-radius:var(--radius);overflow:hidden;
@@ -509,6 +511,7 @@
 
 <!-- ================= SERVICES ================= -->
 <section class="services" id="servicos">
+  <div class="manifesto-lines" aria-hidden="true"><span></span><span></span><span></span><span></span></div>
   <div class="wrap">
     <div class="section-head reveal">
       <span class="eyebrow">Serviços</span>
@@ -601,6 +604,7 @@
 
 <!-- ================= PLANS ================= -->
 <section class="plans" id="planos">
+  <div class="manifesto-lines" aria-hidden="true"><span></span><span></span><span></span><span></span></div>
   <div class="wrap">
     <div class="section-head reveal">
       <span class="eyebrow">Planos</span>
@@ -646,6 +650,7 @@
 
 <!-- ================= RESULTS / CREDENTIALS ================= -->
 <section class="results" id="resultados">
+  <div class="manifesto-lines" aria-hidden="true"><span></span><span></span><span></span><span></span></div>
   <div class="wrap">
     <div class="results-photo reveal">
       <div class="glow"></div>
