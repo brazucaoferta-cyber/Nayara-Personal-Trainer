@@ -244,7 +244,22 @@
 
   /* ---------- manifesto ---------- */
   .manifesto{padding:130px 0;background:linear-gradient(180deg,var(--bg) 0%,var(--bg-soft) 100%);text-align:center;position:relative;overflow:hidden;}
-  .manifesto .glow{width:520px;height:520px;top:8%;left:50%;transform:translate(-50%,-50%);opacity:.35;}
+  .manifesto-lines{position:absolute;inset:0;overflow:hidden;pointer-events:none;z-index:1;}
+  .manifesto-lines span{
+    position:absolute;top:-30%;width:2px;height:160%;
+    background:linear-gradient(180deg,transparent 0%,var(--blue-soft) 45%,var(--blue) 55%,transparent 100%);
+    box-shadow:0 0 16px 1px var(--blue-soft),0 0 34px 3px rgba(90,92,255,.35);
+    opacity:.5;transform:rotate(var(--rot,0deg));
+    animation:lineFloat 8s ease-in-out infinite;
+  }
+  .manifesto-lines span:nth-child(1){left:10%;--rot:16deg;animation-duration:9s;}
+  .manifesto-lines span:nth-child(2){left:30%;--rot:-11deg;animation-duration:7s;animation-delay:.6s;}
+  .manifesto-lines span:nth-child(3){left:56%;--rot:8deg;animation-duration:10s;animation-delay:1.4s;}
+  .manifesto-lines span:nth-child(4){left:80%;--rot:-15deg;animation-duration:7.5s;animation-delay:.3s;}
+  @keyframes lineFloat{
+    0%,100%{transform:translateY(-3%) rotate(var(--rot,0deg));opacity:.26;}
+    50%{transform:translateY(3%) rotate(var(--rot,0deg));opacity:.65;}
+  }
   .manifesto .wrap{max-width:760px;position:relative;z-index:2;}
   .manifesto-quote{font-family:'Playfair Display',serif;font-style:italic;font-weight:600;font-size:clamp(1.8rem,4vw,2.6rem);color:var(--white);margin-bottom:36px;line-height:1.3;}
   .manifesto-body p{color:var(--muted);font-size:1.05rem;margin-bottom:20px;max-width:640px;margin-left:auto;margin-right:auto;}
@@ -568,7 +583,7 @@
 
 <!-- ================= MANIFESTO ================= -->
 <section class="manifesto" id="filosofia">
-  <div class="glow"></div>
+  <div class="manifesto-lines" aria-hidden="true"><span></span><span></span><span></span><span></span></div>
   <div class="wrap reveal">
     <span class="eyebrow" style="justify-content:center;">Por que treinar comigo</span>
     <h2 class="manifesto-quote">"O espelho machuca. A ação diária cura."</h2>
