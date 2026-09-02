@@ -274,11 +274,12 @@
   }, {threshold:0.15, rootMargin:'0px 0px -60px 0px'});
   document.querySelectorAll('.reveal').forEach(el => io.observe(el));
 
-  // video play
+  // video play / pause
   const frame = document.getElementById('videoFrame');
   const video = document.getElementById('ebookVideo');
   const playBtn = document.getElementById('videoPlay');
   playBtn.addEventListener('click', () => {
+    video.setAttribute('controls', '');
     video.play().then(() => frame.classList.add('is-playing')).catch(() => {});
   });
   video.addEventListener('ended', () => frame.classList.remove('is-playing'));
