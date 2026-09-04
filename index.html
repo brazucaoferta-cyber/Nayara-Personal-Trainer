@@ -380,9 +380,15 @@
     border-radius:var(--radius);overflow:hidden;
     border:1px solid var(--border);
     box-shadow:0 40px 80px -30px rgba(0,0,0,.6);
+    position:relative;aspect-ratio:4/5;
   }
-  .results-photo img{width:100%;object-fit:cover;aspect-ratio:4/5;}
+  .results-photo img{width:100%;height:100%;object-fit:cover;}
   .results-photo .glow{width:340px;height:340px;top:-10%;right:-15%;opacity:.4;}
+  .frame.photo-transition img{position:absolute;inset:0;}
+  .frame.photo-transition .photo-a{position:relative;opacity:1;animation:crossfadeA 11s ease-in-out infinite;}
+  .frame.photo-transition .photo-b{opacity:0;animation:crossfadeB 11s ease-in-out infinite;}
+  @keyframes crossfadeA{0%,40%{opacity:1;}50%,90%{opacity:0;}100%{opacity:1;}}
+  @keyframes crossfadeB{0%,40%{opacity:0;}50%,90%{opacity:1;}100%{opacity:0;}}
   .credential-list{display:flex;flex-direction:column;gap:22px;margin-top:38px;}
   .credential-item{display:flex;gap:18px;align-items:flex-start;}
   .credential-icon{
@@ -394,15 +400,10 @@
   .credential-item h4{font-family:'Poppins',sans-serif;font-size:1rem;margin-bottom:4px;}
   .credential-item p{color:var(--muted);font-size:.92rem;}
 
-  /* ---------- about ---------- */
-  .about{padding:110px 0;background:var(--bg);}
-  .about .wrap{display:grid;grid-template-columns:1fr 1fr;gap:60px;align-items:center;}
-  .about p{color:var(--muted);font-size:1.05rem;margin-bottom:18px;}
-  .about p:last-of-type{margin-bottom:0;}
   .about-quote{
-    padding:8px 0 8px 30px;border-left:2px solid var(--blue-soft);
+    margin:26px 0;padding:6px 0 6px 24px;border-left:2px solid var(--blue-soft);
     font-family:'Playfair Display',serif;font-style:italic;font-weight:600;
-    font-size:clamp(1.5rem,2.6vw,2.1rem);line-height:1.35;color:var(--white);
+    font-size:clamp(1.15rem,1.7vw,1.45rem);line-height:1.4;color:var(--white);
   }
 
   /* ---------- location ---------- */
@@ -484,7 +485,7 @@
     .before-after{padding:0 0 80px;}
     .ba-grid{grid-template-columns:1fr;gap:40px;}
     .testi-card{flex-basis:280px;}
-    .plans,.results,.about,.location,.manifesto{padding:72px 0;}
+    .plans,.results,.location,.manifesto{padding:72px 0;}
     .final-cta{padding:80px 0;}
     .section-head{margin-bottom:40px;}
     .hero .wrap{grid-template-columns:1fr;text-align:center;}
@@ -495,7 +496,7 @@
     .badge-1{left:2%;top:4%;}
     .badge-2{right:0;bottom:2%;}
     .service-grid,.plan-grid{grid-template-columns:1fr;}
-    .results .wrap,.about .wrap{grid-template-columns:1fr;}
+    .results .wrap{grid-template-columns:1fr;}
     .results-photo{max-width:340px;margin:0 auto;}
     .location .wrap{text-align:center;}
     .location-intro{max-width:none;margin:0 auto;}
@@ -536,8 +537,7 @@
     <nav class="links">
       <a href="#servicos">Serviços</a>
       <a href="#planos">Planos</a>
-      <a href="#resultados">Resultados</a>
-      <a href="#sobre">Sobre</a>
+      <a href="#resultados">Sobre</a>
       <a href="#localizacao">Localização</a>
     </nav>
     <div class="nav-cta">
@@ -556,8 +556,7 @@
 <div class="mobile-menu" id="mobileMenu">
   <a href="#servicos">Serviços</a>
   <a href="#planos">Planos</a>
-  <a href="#resultados">Resultados</a>
-  <a href="#sobre">Sobre</a>
+  <a href="#resultados">Sobre</a>
   <a href="#localizacao">Localização</a>
   <a class="btn btn-primary" target="_blank" rel="noopener"
      href="https://wa.me/5511910609939?text=Ol%C3%A1%20Nayara%21%20Quero%20agendar%20uma%20avalia%C3%A7%C3%A3o.">
@@ -859,14 +858,17 @@
   <div class="wrap">
     <div class="results-photo reveal">
       <div class="glow"></div>
-      <div class="frame">
-        <img src="assets/nayara-competicao.jpg" alt="Nayara Sangoleti competindo em campeonato de fisiculturismo, no palco">
+      <div class="frame photo-transition">
+        <img class="photo-a" src="assets/nayara-competicao.jpg" alt="Nayara Sangoleti competindo em campeonato de fisiculturismo, no palco">
+        <img class="photo-b" src="assets/sobre-nayara.jpg" alt="Nayara Sangoleti sentada em uma caixa de crossfit, dentro da academia" style="object-position:40% 15%;">
       </div>
     </div>
     <div class="reveal">
       <span class="eyebrow">Quem é a Nayara</span>
       <h2>Disciplina de atleta, aplicada no seu treino</h2>
       <p style="color:var(--muted);max-width:480px;">Além de personal trainer, Nayara é atleta competidora de fisiculturismo. A mesma exigência que ela leva para o palco é a que ela aplica em cada aluna — seja o objetivo subir num palco ou só emagrecer com saúde e se sentir bem no espelho.</p>
+
+      <div class="about-quote">"Não é sobre treino perfeito, é sobre constância que muda a sua vida."</div>
 
       <div class="credential-list">
         <div class="credential-item">
@@ -891,23 +893,6 @@
 </section>
 
 </div><!-- /.journey -->
-
-<!-- ================= ABOUT ================= -->
-<section class="about" id="sobre">
-  <div class="wrap">
-    <div class="reveal">
-      <div class="about-quote">"Não é sobre treino perfeito, é sobre constância que muda a sua vida."</div>
-    </div>
-    <div class="reveal">
-      <div class="results-photo" style="margin:0;">
-        <div class="glow" style="width:300px;height:300px;top:10%;left:-10%;"></div>
-        <div class="frame">
-          <img src="assets/sobre-nayara.jpg" alt="Nayara Sangoleti sentada em uma caixa de crossfit, dentro da academia" style="object-position:40% 15%; aspect-ratio:0.62; object-fit:cover;">
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
 
 <!-- ================= LOCATION ================= -->
 <section class="location" id="localizacao">
@@ -1010,8 +995,7 @@
           <h5>Site</h5>
           <a href="#servicos">Serviços</a>
           <a href="#planos">Planos</a>
-          <a href="#resultados">Resultados</a>
-          <a href="#sobre">Sobre</a>
+          <a href="#resultados">Sobre</a>
           <a href="#localizacao">Localização</a>
         </div>
         <div class="footer-col">
