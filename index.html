@@ -214,8 +214,9 @@
   .reveal-stagger.in > *:nth-child(4){transition-delay:.32s}
 
   /* ---------- testimonials ---------- */
-  .testimonials{padding:110px 0 120px;background:var(--bg);overflow:hidden;}
-  .testi-wrap{position:relative;max-width:var(--maxw);margin:0 auto;padding:0 24px;display:flex;align-items:center;gap:14px;}
+  .testimonials{padding:110px 0 120px;}
+  .testimonials .wrap{position:relative;z-index:2;}
+  .testi-wrap{position:relative;z-index:2;max-width:var(--maxw);margin:0 auto;padding:0 24px;display:flex;align-items:center;gap:14px;}
   .testi-track{
     display:flex;gap:22px;overflow-x:auto;scroll-snap-type:x mandatory;
     padding:6px 2px 14px;scrollbar-width:none;
@@ -249,7 +250,8 @@
   .testi-nav svg{width:20px;height:20px;}
 
   /* ---------- before / after ---------- */
-  .before-after{padding:0 0 120px;background:var(--bg);}
+  .before-after{padding:0 0 120px;}
+  .before-after .wrap{position:relative;z-index:2;}
   .ba-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:26px;}
   .ba-card{display:flex;flex-direction:column;gap:14px;}
   .ba-compare{
@@ -600,7 +602,10 @@
   <div class="scroll-cue"><span>Role</span><div class="line"></div></div>
 </section>
 
-<!-- ================= TESTIMONIALS ================= -->
+<!-- ================= TESTIMONIALS + BEFORE/AFTER + SERVICES + MANIFESTO + PLANS + RESULTS (linhas neon continuas) ================= -->
+<div class="journey">
+  <div class="manifesto-lines" aria-hidden="true"><span></span><span></span><span></span><span></span></div>
+
 <section class="testimonials" id="depoimentos">
   <div class="wrap">
     <div class="section-head reveal">
@@ -713,10 +718,6 @@
     </div>
   </div>
 </section>
-
-<!-- ================= SERVICES + MANIFESTO + PLANS + RESULTS (linhas neon continuas) ================= -->
-<div class="journey">
-  <div class="manifesto-lines" aria-hidden="true"><span></span><span></span><span></span><span></span></div>
 
 <section class="services" id="servicos">
   <div class="wrap">
