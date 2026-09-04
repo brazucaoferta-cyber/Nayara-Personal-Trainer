@@ -213,6 +213,77 @@
   .reveal-stagger.in > *:nth-child(3){transition-delay:.23s}
   .reveal-stagger.in > *:nth-child(4){transition-delay:.32s}
 
+  /* ---------- testimonials ---------- */
+  .testimonials{padding:110px 0 120px;background:var(--bg);overflow:hidden;}
+  .testi-wrap{position:relative;max-width:var(--maxw);margin:0 auto;padding:0 24px;display:flex;align-items:center;gap:14px;}
+  .testi-track{
+    display:flex;gap:22px;overflow-x:auto;scroll-snap-type:x mandatory;
+    padding:6px 2px 14px;scrollbar-width:none;
+  }
+  .testi-track::-webkit-scrollbar{display:none;}
+  .testi-card{
+    scroll-snap-align:start;flex:0 0 320px;
+    background:linear-gradient(155deg,var(--card),var(--card-2));
+    border:1px solid var(--border);border-radius:var(--radius);
+    padding:30px;display:flex;flex-direction:column;gap:18px;
+  }
+  .testi-card.placeholder{border-style:dashed;border-color:rgba(255,255,255,.18);}
+  .testi-stars{color:var(--blue-soft);letter-spacing:.14em;font-size:.95rem;}
+  .testi-quote{color:var(--muted);font-size:.96rem;line-height:1.6;flex:1;}
+  .testi-author{display:flex;align-items:center;gap:14px;}
+  .testi-avatar{
+    width:42px;height:42px;border-radius:50%;flex-shrink:0;
+    background:rgba(90,92,255,.14);border:1px solid rgba(90,92,255,.35);
+    display:flex;align-items:center;justify-content:center;
+    font-family:'Poppins',sans-serif;font-weight:700;color:var(--blue-soft);
+  }
+  .testi-author strong{display:block;font-family:'Poppins',sans-serif;font-size:.9rem;}
+  .testi-author span{color:var(--muted-2);font-size:.78rem;}
+  .testi-nav{
+    flex-shrink:0;width:44px;height:44px;border-radius:50%;
+    border:1px solid var(--border);background:var(--card);color:var(--white);
+    display:flex;align-items:center;justify-content:center;cursor:pointer;
+    transition:border-color .25s ease,transform .25s ease;
+  }
+  .testi-nav:hover{border-color:rgba(255,255,255,.35);transform:translateY(-2px);}
+  .testi-nav svg{width:20px;height:20px;}
+
+  /* ---------- before / after ---------- */
+  .before-after{padding:0 0 120px;background:var(--bg);}
+  .ba-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:26px;}
+  .ba-card{display:flex;flex-direction:column;gap:14px;}
+  .ba-compare{
+    position:relative;aspect-ratio:4/5;border-radius:var(--radius);overflow:hidden;
+    border:1px solid var(--border);box-shadow:0 30px 60px -30px rgba(0,0,0,.6);
+    user-select:none;-webkit-user-select:none;
+  }
+  .ba-side{position:absolute;inset:0;display:flex;align-items:flex-end;overflow:hidden;}
+  .ba-after{background:linear-gradient(160deg,var(--indigo),var(--navy));}
+  .ba-before{background:linear-gradient(160deg,#232055,#131233);border-right:2px solid var(--blue-soft);}
+  .ba-tag{
+    position:absolute;top:14px;left:14px;
+    background:rgba(10,10,28,.75);border:1px solid var(--border);
+    padding:5px 12px;border-radius:999px;font-family:'Space Mono',monospace;
+    font-size:.68rem;letter-spacing:.12em;text-transform:uppercase;color:var(--white);
+  }
+  .ba-placeholder-label{
+    padding:16px;color:var(--muted-2);font-size:.82rem;
+  }
+  .ba-handle{
+    position:absolute;top:0;bottom:0;left:50%;width:0;
+    display:flex;align-items:center;justify-content:center;
+    transform:translateX(-50%);cursor:ew-resize;touch-action:none;z-index:3;
+  }
+  .ba-handle::before{
+    content:'';position:absolute;top:0;bottom:0;left:50%;width:2px;
+    background:var(--white);transform:translateX(-50%);box-shadow:0 0 12px rgba(255,255,255,.5);
+  }
+  .ba-handle svg{
+    position:relative;width:34px;height:34px;padding:7px;border-radius:50%;
+    background:var(--white);color:var(--navy);box-shadow:0 8px 20px -6px rgba(0,0,0,.7);
+  }
+  .ba-caption{color:var(--muted-2);font-size:.85rem;text-align:center;}
+
   /* ---------- services ---------- */
   .journey{position:relative;overflow:hidden;background:linear-gradient(180deg,var(--bg) 0%,var(--bg-soft) 42%,var(--bg) 68%,var(--bg-soft) 100%);}
   .services{padding:130px 0 100px;}
@@ -407,6 +478,10 @@
     .scroll-cue{display:none;}
     .hero{min-height:auto;padding-bottom:60px;}
     .services{padding:80px 0 64px;}
+    .testimonials{padding:72px 0 80px;}
+    .before-after{padding:0 0 80px;}
+    .ba-grid{grid-template-columns:1fr;gap:40px;}
+    .testi-card{flex-basis:280px;}
     .plans,.results,.about,.location,.manifesto{padding:72px 0;}
     .final-cta{padding:80px 0;}
     .section-head{margin-bottom:40px;}
@@ -437,6 +512,10 @@
     .footer-top{flex-direction:column;}
     .footer-cols{gap:40px;}
     .wa-fab{width:54px;height:54px;bottom:18px;right:18px;}
+    .testi-wrap{padding:0;}
+    .testi-nav{display:none;}
+    .testi-track{padding-left:18px;padding-right:18px;}
+    .testi-card{flex-basis:82vw;}
   }
   @media (prefers-reduced-motion:reduce){
     *{animation:none !important;transition:none !important;}
@@ -519,6 +598,120 @@
     </div>
   </div>
   <div class="scroll-cue"><span>Role</span><div class="line"></div></div>
+</section>
+
+<!-- ================= TESTIMONIALS ================= -->
+<section class="testimonials" id="depoimentos">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <span class="eyebrow">Depoimentos</span>
+      <h2>O que as alunas dizem</h2>
+      <p>Prova social real, direto de quem treina comigo. Arraste para o lado para ver mais.</p>
+    </div>
+  </div>
+  <div class="testi-wrap reveal">
+    <button class="testi-nav testi-prev" id="testiPrev" aria-label="Depoimento anterior">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M15 18l-6-6 6-6"/></svg>
+    </button>
+    <div class="testi-track" id="testiTrack">
+      <div class="testi-card placeholder">
+        <div class="testi-stars">★★★★★</div>
+        <p class="testi-quote">Espaço reservado para um depoimento real. Me envie o texto e o nome da aluna para eu colocar aqui.</p>
+        <div class="testi-author">
+          <div class="testi-avatar">?</div>
+          <div><strong>Nome da aluna</strong><span>Modalidade · tempo de treino</span></div>
+        </div>
+      </div>
+      <div class="testi-card placeholder">
+        <div class="testi-stars">★★★★★</div>
+        <p class="testi-quote">Espaço reservado para um depoimento real. Me envie o texto e o nome da aluna para eu colocar aqui.</p>
+        <div class="testi-author">
+          <div class="testi-avatar">?</div>
+          <div><strong>Nome da aluna</strong><span>Modalidade · tempo de treino</span></div>
+        </div>
+      </div>
+      <div class="testi-card placeholder">
+        <div class="testi-stars">★★★★★</div>
+        <p class="testi-quote">Espaço reservado para um depoimento real. Me envie o texto e o nome da aluna para eu colocar aqui.</p>
+        <div class="testi-author">
+          <div class="testi-avatar">?</div>
+          <div><strong>Nome da aluna</strong><span>Modalidade · tempo de treino</span></div>
+        </div>
+      </div>
+      <div class="testi-card placeholder">
+        <div class="testi-stars">★★★★★</div>
+        <p class="testi-quote">Espaço reservado para um depoimento real. Me envie o texto e o nome da aluna para eu colocar aqui.</p>
+        <div class="testi-author">
+          <div class="testi-avatar">?</div>
+          <div><strong>Nome da aluna</strong><span>Modalidade · tempo de treino</span></div>
+        </div>
+      </div>
+    </div>
+    <button class="testi-nav testi-next" id="testiNext" aria-label="Próximo depoimento">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 18l6-6-6-6"/></svg>
+    </button>
+  </div>
+</section>
+
+<!-- ================= BEFORE / AFTER ================= -->
+<section class="before-after" id="antes-depois">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <span class="eyebrow">Resultados reais</span>
+      <h2>Antes e depois</h2>
+      <p>Arraste o controle para o lado e compare. Espaço reservado — me envie as fotos das alunas para eu colocar aqui.</p>
+    </div>
+    <div class="ba-grid reveal-stagger">
+      <div class="ba-card">
+        <div class="ba-compare" data-ba>
+          <div class="ba-side ba-after">
+            <span class="ba-tag">Depois</span>
+            <span class="ba-placeholder-label">Foto "depois"</span>
+          </div>
+          <div class="ba-side ba-before" style="width:50%;">
+            <span class="ba-tag">Antes</span>
+            <span class="ba-placeholder-label">Foto "antes"</span>
+          </div>
+          <div class="ba-handle" style="left:50%;">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M8 8l-4 4 4 4M16 8l4 4-4 4"/></svg>
+          </div>
+        </div>
+        <p class="ba-caption">Nome da aluna · período</p>
+      </div>
+      <div class="ba-card">
+        <div class="ba-compare" data-ba>
+          <div class="ba-side ba-after">
+            <span class="ba-tag">Depois</span>
+            <span class="ba-placeholder-label">Foto "depois"</span>
+          </div>
+          <div class="ba-side ba-before" style="width:50%;">
+            <span class="ba-tag">Antes</span>
+            <span class="ba-placeholder-label">Foto "antes"</span>
+          </div>
+          <div class="ba-handle" style="left:50%;">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M8 8l-4 4 4 4M16 8l4 4-4 4"/></svg>
+          </div>
+        </div>
+        <p class="ba-caption">Nome da aluna · período</p>
+      </div>
+      <div class="ba-card">
+        <div class="ba-compare" data-ba>
+          <div class="ba-side ba-after">
+            <span class="ba-tag">Depois</span>
+            <span class="ba-placeholder-label">Foto "depois"</span>
+          </div>
+          <div class="ba-side ba-before" style="width:50%;">
+            <span class="ba-tag">Antes</span>
+            <span class="ba-placeholder-label">Foto "antes"</span>
+          </div>
+          <div class="ba-handle" style="left:50%;">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M8 8l-4 4 4 4M16 8l4 4-4 4"/></svg>
+          </div>
+        </div>
+        <p class="ba-caption">Nome da aluna · período</p>
+      </div>
+    </div>
+  </div>
 </section>
 
 <!-- ================= SERVICES + MANIFESTO + PLANS + RESULTS (linhas neon continuas) ================= -->
@@ -864,6 +1057,44 @@
     });
   }, {threshold:0.15, rootMargin:'0px 0px -60px 0px'});
   document.querySelectorAll('.reveal, .reveal-stagger').forEach(el => io.observe(el));
+
+  // testimonials carousel
+  const testiTrack = document.getElementById('testiTrack');
+  if (testiTrack) {
+    const scrollByCard = (dir) => {
+      const card = testiTrack.querySelector('.testi-card');
+      const gap = 22;
+      const amount = (card ? card.offsetWidth : 320) + gap;
+      testiTrack.scrollBy({ left: dir * amount, behavior: 'smooth' });
+    };
+    document.getElementById('testiPrev').addEventListener('click', () => scrollByCard(-1));
+    document.getElementById('testiNext').addEventListener('click', () => scrollByCard(1));
+  }
+
+  // before/after drag compare
+  document.querySelectorAll('[data-ba]').forEach((compare) => {
+    const before = compare.querySelector('.ba-before');
+    const handle = compare.querySelector('.ba-handle');
+    let dragging = false;
+
+    const setPos = (clientX) => {
+      const rect = compare.getBoundingClientRect();
+      let pct = ((clientX - rect.left) / rect.width) * 100;
+      pct = Math.max(0, Math.min(100, pct));
+      before.style.width = pct + '%';
+      handle.style.left = pct + '%';
+    };
+
+    const start = (e) => { dragging = true; compare.setPointerCapture?.(e.pointerId); };
+    const move = (e) => { if (dragging) setPos(e.clientX); };
+    const end = () => { dragging = false; };
+
+    handle.addEventListener('pointerdown', start);
+    compare.addEventListener('pointerdown', (e) => { start(e); setPos(e.clientX); });
+    compare.addEventListener('pointermove', move);
+    compare.addEventListener('pointerup', end);
+    compare.addEventListener('pointerleave', end);
+  });
 </script>
 
 </body>
