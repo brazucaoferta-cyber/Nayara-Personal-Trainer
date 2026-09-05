@@ -268,19 +268,21 @@
     position:relative;aspect-ratio:4/5;border-radius:var(--radius);overflow:hidden;
     border:1px solid var(--border);box-shadow:0 30px 60px -30px rgba(0,0,0,.6);
     user-select:none;-webkit-user-select:none;
+    container-type:inline-size;
   }
   .ba-side{position:absolute;inset:0;display:flex;align-items:flex-end;overflow:hidden;}
   .ba-after{background:linear-gradient(160deg,var(--indigo),var(--navy));}
   .ba-before{background:linear-gradient(160deg,#232055,#131233);border-right:2px solid var(--blue-soft);}
+  .ba-side img{
+    position:absolute;top:0;left:0;height:100%;width:100cqw;max-width:none;object-fit:cover;
+  }
   .ba-tag{
-    position:absolute;top:14px;left:14px;
+    position:absolute;top:14px;left:14px;z-index:2;
     background:rgba(10,10,28,.75);border:1px solid var(--border);
     padding:5px 12px;border-radius:999px;font-family:'Space Mono',monospace;
     font-size:.68rem;letter-spacing:.12em;text-transform:uppercase;color:var(--white);
   }
-  .ba-placeholder-label{
-    padding:16px;color:var(--muted-2);font-size:.82rem;
-  }
+  .ba-after .ba-tag{left:auto;right:14px;}
   .ba-handle{
     position:absolute;top:0;bottom:0;left:50%;width:0;
     display:flex;align-items:center;justify-content:center;
@@ -294,8 +296,6 @@
     position:relative;width:34px;height:34px;padding:7px;border-radius:50%;
     background:var(--white);color:var(--navy);box-shadow:0 8px 20px -6px rgba(0,0,0,.7);
   }
-  .ba-caption{color:var(--muted-2);font-size:.85rem;text-align:center;}
-
   /* ---------- services ---------- */
   .journey{position:relative;overflow:hidden;background:linear-gradient(180deg,var(--bg) 0%,var(--bg-soft) 42%,var(--bg) 68%,var(--bg-soft) 100%);}
   .services{padding:130px 0 100px;}
@@ -694,56 +694,53 @@
     <div class="section-head reveal">
       <span class="eyebrow">Resultados reais</span>
       <h2>Antes e depois</h2>
-      <p>Arraste o controle para o lado e compare. Espaço reservado, me envie as fotos das alunas para eu colocar aqui.</p>
+      <p>Arraste o controle para o lado e veja resultados reais de quem já treina comigo.</p>
     </div>
     <div class="ba-grid reveal-stagger">
       <div class="ba-card">
         <div class="ba-compare" data-ba>
           <div class="ba-side ba-after">
             <span class="ba-tag">Depois</span>
-            <span class="ba-placeholder-label">Foto "depois"</span>
+            <img src="assets/ba-1-depois.jpg" alt="Resultado depois do acompanhamento, região lombar e cintura">
           </div>
           <div class="ba-side ba-before" style="width:50%;">
             <span class="ba-tag">Antes</span>
-            <span class="ba-placeholder-label">Foto "antes"</span>
+            <img src="assets/ba-1-antes.jpg" alt="Resultado antes do acompanhamento, região lombar e cintura">
           </div>
           <div class="ba-handle" style="left:50%;">
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M8 8l-4 4 4 4M16 8l4 4-4 4"/></svg>
           </div>
         </div>
-        <p class="ba-caption">Nome da aluna · período</p>
       </div>
       <div class="ba-card">
         <div class="ba-compare" data-ba>
           <div class="ba-side ba-after">
             <span class="ba-tag">Depois</span>
-            <span class="ba-placeholder-label">Foto "depois"</span>
+            <img src="assets/ba-2-depois.jpg" alt="Resultado depois do acompanhamento, vista de costas">
           </div>
           <div class="ba-side ba-before" style="width:50%;">
             <span class="ba-tag">Antes</span>
-            <span class="ba-placeholder-label">Foto "antes"</span>
+            <img src="assets/ba-2-antes.jpg" alt="Resultado antes do acompanhamento, vista de costas">
           </div>
           <div class="ba-handle" style="left:50%;">
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M8 8l-4 4 4 4M16 8l4 4-4 4"/></svg>
           </div>
         </div>
-        <p class="ba-caption">Nome da aluna · período</p>
       </div>
       <div class="ba-card">
         <div class="ba-compare" data-ba>
           <div class="ba-side ba-after">
             <span class="ba-tag">Depois</span>
-            <span class="ba-placeholder-label">Foto "depois"</span>
+            <img src="assets/ba-3-depois.jpg" alt="Resultado depois do acompanhamento, vista de frente">
           </div>
           <div class="ba-side ba-before" style="width:50%;">
             <span class="ba-tag">Antes</span>
-            <span class="ba-placeholder-label">Foto "antes"</span>
+            <img src="assets/ba-3-antes.jpg" alt="Resultado antes do acompanhamento, vista de frente">
           </div>
           <div class="ba-handle" style="left:50%;">
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M8 8l-4 4 4 4M16 8l4 4-4 4"/></svg>
           </div>
         </div>
-        <p class="ba-caption">Nome da aluna · período</p>
       </div>
     </div>
   </div>
